@@ -16,5 +16,6 @@ For a given value, for which the variable type is based on a dictionary domain, 
 2. As a solution for p.1, one can add their method in the class that returns а table instead.     
 # Advantage
 - No need to know the domain name, just pass values and voila... there you have text.
+- Works  for 95% of domains( in the case of value table, not always easy to determine text field). 
 # Version:
  Works for version 7.4 and above.
