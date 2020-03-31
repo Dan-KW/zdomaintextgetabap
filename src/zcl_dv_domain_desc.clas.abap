@@ -266,10 +266,10 @@ endmethod.
           lv_lang_txt               type fieldname,
           lv_where                  type string,
           lv_lang_code              type langu.
-    statics:lt_values                 type ddfixvalues,
-            lt_st_last_vsourcetab     type tfieldval,
-            lv_st_last_vsourcetab     type tabname,
-            lv_domainname             TYPE domname.
+    statics:lt_values             type ddfixvalues,
+            lt_st_last_vsourcetab type tfieldval,
+            lv_st_last_vsourcetab type tabname,
+            lv_domainname         type domname.
     create object lo_st_text_identifier_obj type cl_text_identifier.
     "Get the name and description of the domain
     lo_element ?= cl_abap_typedescr=>describe_by_data( im_field ) .
@@ -354,7 +354,9 @@ endmethod.
               loop at <lfs_res>-text_table_key_desc assigning field-symbol(<lfs_key_desc>) where matching_fieldname = lv_fieldname. "must be there
                 lv_join_field = <lfs_key_desc>-fieldname.
               endloop.
-
+              if sy-subrc <> 0.
+                raise internal_error.
+              endif.
               try .
                   lv_fields         = | { lv_vtablename }~{ lv_fieldname } AS key, { <lfs_res>-textsource_target }~{ <lfs_res>-textsource_field } AS text |.
                   lv_join_condition = | { lv_vtablename } INNER JOIN { <lfs_res>-textsource_target } ON { lv_vtablename }~{ <lfs_key_desc>-matching_fieldname } = { <lfs_res>-textsource_target }~{ lv_join_field } |.
@@ -389,15 +391,15 @@ endmethod.
         endif.
 
       endif.
-      read table t_buf_desctxt assigning field-symbol(<fs_st_buffer>) with  key key = im_field.
+      read table t_buf_desctxt assigning field-symbol(<fs_st_buffer>) with table  key key = im_field.
       if sy-subrc = 0.
         rv_desc_txt = <fs_st_buffer>-text.
       endif.
     else. "get from value from range
-     if  ls_field-domname ne lv_domainname. " get domain fixed or range values only if domain is different.
-       lt_values =  lo_element->get_ddic_fixed_values( im_langu ) .
-       lv_domainname = ls_field-domname.
-     endif.
+      if  ls_field-domname ne lv_domainname. " get domain fixed or range values only if domain is different.
+        lt_values =  lo_element->get_ddic_fixed_values( im_langu ) .
+        lv_domainname = ls_field-domname.
+      endif.
 
       if lt_values is not initial.
         loop at lt_values assigning field-symbol(<fs_value>).
