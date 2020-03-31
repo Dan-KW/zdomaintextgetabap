@@ -5,7 +5,7 @@
 For a given value, for which the variable type is based on a dictionary domain, get the text description for the value from the dictionary (value table, fixed values, range values).
 
 # Algorithm
-1. Required text is returned as a return parameter of the static method get_domain_descr. IFor input parameter, the method takes the value in a variable.
+1. Required text is returned as a return parameter of the static method get_domain_descr. For input parameter, the method takes the value in a variable.
 2. using rtts class methods, the underlying domain is determined.
 3. presence of value table is checked. If value table is present, standard class cl_text_identifier is used to determine key relationship between domain value and value table, as well as any text table that might be associated with the value table. Also the prospective text field in the value or text table is defined at this stage.
 4. Based on information in p. 3, a dynamic select query is formed and a table of values is selected and saved in a buffer.
