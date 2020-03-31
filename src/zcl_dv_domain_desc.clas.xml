@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_DV_DOMAIN_DESC</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>R</LANGU>
+    <DESCRIPT>Get Domain Description Values</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DV_DOMAIN_DESC</CLSNAME>
+     <CMPNAME>CHECK_IF_TEXTTABLE_FOR_TABLE</CMPNAME>
+     <LANGU>R</LANGU>
+     <DESCRIPT>Check if a Text Table Exists for the Table (from standard)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DV_DOMAIN_DESC</CLSNAME>
+     <CMPNAME>CHECK_IF_VALUETABLE_FOR_DOMAIN</CMPNAME>
+     <LANGU>R</LANGU>
+     <DESCRIPT>If domain has value table(from standard sap class)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DV_DOMAIN_DESC</CLSNAME>
+     <CMPNAME>GET_DDIC_INFO</CMPNAME>
+     <LANGU>R</LANGU>
+     <DESCRIPT>Read Information From Dictionary(form standard sap class)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DV_DOMAIN_DESC</CLSNAME>
+     <CMPNAME>GET_DOMAIN_DESCR</CMPNAME>
+     <LANGU>R</LANGU>
+     <DESCRIPT>Get domain description from value table and fixed values</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
